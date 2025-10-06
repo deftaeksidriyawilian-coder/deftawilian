@@ -1,0 +1,464 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebsiteDeftawilianHTML</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 40%, #2e2e2e 70%, #444444 100%);
+            color: #e6e6e6;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            color: #f2f2f2;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-tabs button {
+            background: #f0f0f0;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s;
+            color: #1a1a1a;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .nav-tabs button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+
+        .nav-tabs button.active {
+            background: #2b2b2b;
+            color: #f5f5f5;
+        }
+
+        .content-section {
+            display: none;
+            background: #1a1a1a;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            margin-bottom: 30px;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #f0f0f0;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-bottom: 3px solid #6b6b6b;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #d9d9d9;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .code-block {
+            background: #111111;
+            color: #f7f7f7;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            position: relative;
+        }
+
+        .code-block::before {
+            content: 'Python';
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            background: #2e2e2e;
+            color: #f2f2f2;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.8em;
+        }
+
+        .keyword { color: #cccccc; }
+        .string { color: #e0e0e0; }
+        .comment { color: #9a9a9a; font-style: italic; }
+        .function { color: #d0d0d0; }
+
+        .example-box {
+            background: #121212;
+            border-left: 4px solid #6b6b6b;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .interactive-demo {
+            background: #141414;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .demo-button {
+            background: #2b2b2b;
+            color: #f5f5f5;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 10px 5px;
+            transition: all 0.3s;
+        }
+
+        .demo-button:hover {
+            background: #3a3a3a;
+            transform: scale(1.05);
+        }
+
+        .output {
+            background: #0f0f0f;
+            color: #d9d9d9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-family: monospace;
+            min-height: 50px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #1c1c1c 0%, #2a2a2a 50%, #3a3a3a 100%);
+            color: #f0f0f0;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h4 {
+            margin-bottom: 10px;
+            font-size: 1.3em;
+            color: #f2f2f2;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TENTANG AKU</h1>
+            <p>DEFTA EKSIDRIYA WILIAN</p>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="active" onclick="showSection(this, 'basics')">HOME</button>   
+            <button onclick="showSection(this, 'special')">LIST MANWHA DAN ANIME</button>
+            <button onclick="showSection(this, 'properties')">HUBUNGI</button>
+            <button onclick="showSection(this, 'demo')">LAINNYA</button>
+        </div>
+
+        <!-- Basics Section -->
+        <div id="basics" class="content-section active">
+            <h2>Halo Namaku Defta Eksidriya Wilian</h2>
+            <p>Saya membuat web ini lewat HTML apa itu HTML?</p>
+
+            <h3>TML (HyperText Markup Language) adalah bahasa markup standar yang digunakan untuk membuat halaman web. HTML bukan bahasa pemrograman, melainkan bahasa markup yang menggunakan tag-tag untuk mendeskripsikan struktur dan konten dari sebuah halaman web.</h3><span class="comment">#ERROR MAAF :3</span></div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>ELDEN RING</h4>
+                    <p>#1</p>
+                </div>
+                <div class="feature-card">
+                    <h4>RDR 2</h4>
+                    <p>#2</p>
+                </div>
+                <div class="feature-card">
+                    <h4>ROBLOX</h4>
+                    <p>#3</p>
+                </div>
+                <div class="feature-card">
+                    <h4>MINECRAFT</h4>
+                    <p>#4</p>
+                </div>
+            </div>
+
+            
+            <div class="code-block"><span class="keyword">Kok Error</span> <span class="function">Defta raiso mbenakne</span>:
+    <span class="comment">ERROR GUYS WKWKWKWKWKWW</span>
+    wheels = 4
+    
+    <span class="keyword">def</span> <span class="function">__init__</span>(self, brand, color):
+        <span class="comment"># Instance variables (unique to each object)</span>
+        self.brand = brand
+        self.color = color</div>
+        </div>
+
+          
+
+        <!-- Special Methods Section -->
+        <div id="special" class="content-section">
+            <h2>KARYA KARYA YANG PERNAH SAYA BACA</h2>
+           
+            <h3>MANWHA FAVORIT DEFTA</h3>
+            <ul>
+                <li><strong>Solo Leveling</strong> <span class="author">Chugong (Novel), DUBU (Redice Studio)</span></li>
+                <li><strong>The Beginning After The End</strong> <span class="author">TurtleMe, Fuyuki23</span></li>
+                <li><strong>Tower of God</strong> <span class="author">SIU (Lee Jong-hui)</span></li>
+                <li><strong>The God of High School</strong> <span class="author">Yongje Park</span></li>
+                <li><strong>Noblesse</strong> <span class="author">Son Jeho, Lee Kwangsu</span></li>
+                <li><strong>Omniscient Reader's Viewpoint</strong> <span class="author">Sing Shong, Sleepy-C</span></li>
+                <li><strong>Second Life Ranker</strong> <span class="author">Sadoyeon, Nong Nong</span></li>
+                <li><strong>Tomb Raider King</strong> <span class="author">Yoonz, 3B2S</span></li>
+                <li><strong>The Breaker</strong> <span class="author">Jeon Geuk-jin, Park Jin-Hwan</span></li>
+                <li><strong>The Breaker: New Waves</strong> <span class="author">Jeon Geuk-jin, Park Jin-Hwan</span></li>
+                <li><strong>Eleceed</strong> <span class="author">Son Jeho, ZHENA</span></li>
+                <li><strong>Hardcore Leveling Warrior</strong> <span class="author">Sehoon Kim</span></li>
+                <li><strong>A Returner's Magic Should Be Special</strong> <span class="author">Jeon Sun-wook, Yoo So-nan</span></li>
+                <li><strong>Overgeared</strong> <span class="author">Park Saenal, Team Argo</span></li>
+                <li><strong>The Legend of the Northern Blade</strong> <span class="author">Woo-Gak, Hae-Min</span></li>
+                <li><strong>Villain to Kill</strong> <span class="author">Pupin (Eunji), Fu Yuqing</span></li>
+                <li><strong>Nano Machine</strong> <span class="author">Hanjung Wolya, Jeol-Moo-Geum-Cha</span></li>
+                <li><strong>Memorize</strong> <span class="author">Jae-Ho Yeon, Kim Go-Eun</span></li>
+                <li><strong>Skeleton Soldier Couldn't Protect the Dungeon</strong> <span class="author">Ant Studio, Sosori</span></li>
+                <li><strong>SSS-Class Suicide Hunter</strong> <span class="author">Shin Noah, Bill K.</span></li>
+                <li><strong>Limit Breaker</strong> <span class="author">Yoontae Lee, Yeongbin Lee</span></li>
+                <li><strong>Survival Story of a Sword King in a Fantasy World</strong> <span class="author">Lim Kyung-bae, Studio Chun</span></li>
+                <li><strong>Return of the Disaster-Class Hero</strong> <span class="author">SAN.G, Raina</span></li>
+                <li><strong>The Max Level Hero Has Returned!</strong> <span class="author">Yeombie, HWAYOUNG</span></li>
+                <li><strong>The Tutorial Is Too Hard</strong> <span class="author">Gandara, Cheolgang</span></li>
+                <li><strong>FFF-Class Trashero</strong> <span class="author">Farnar, Geulsseuki</span></li>
+                <li><strong>Mercenary Enrollment</strong> <span class="author">YC, Rakhyun</span></li>
+                <li><strong>Chronicles of Heavenly Demon</strong> <span class="author">Il-Hwang, Jae-Hwan</span></li>
+                <li><strong>Dungeon Reset</strong> <span class="author">Ant Studio, Daul</span></li>
+                <li><strong>The Constellation That Returned From Hell</strong> <span class="author">Gwangsaeng, Dog-Nutty</span></li>
+                <li><strong>Kill the Hero</strong> <span class="author">D-Dart, Seo Sang-Won</span></li>
+                <li><strong>Talent-Swallowing Magician</strong> <span class="author">Yuk Hye-rim, Seo Yeon-Won</span></li>
+                <li><strong>Return of the Mount Hua Sect</strong> <span class="author">Biga, Hwarin</span></li>
+                <li><strong>The Lord's Coins Aren't Decreasing?!</strong> <span class="author">JSLAB, Jeon Yu-Rang</span></li>
+                <li><strong>Ranker Who Lives A Second Time</strong> <span class="author">Sadoyeon, Nong Nong</span></li>
+                <li><strong>The Great Mage Returns After 4000 Years</strong> <span class="author">Barnacle, Miro, Redice Studio</span></li>
+                <li><strong>Revenge of the Iron-Blooded Sword Hound</strong> <span class="author">Redice Studio, Kyong-O</span></li>
+                <li><strong>Doctor's Rebirth</strong> <span class="author">Yuin, Lim Taegyu</span></li>
+                <li><strong>The World After the Fall</strong> <span class="author">Sing Shong, Undead Potato</span></li>
+                <li><strong>The Scholar's Reincarnation</strong> <span class="author">Soo Yu-Hyun, Yum Jack-Jack</span></li>
+                <li><strong>The Ember Knight</strong> <span class="author">Kim Jinha, Hwansu</span></li>
+                <li><strong>Volcanic Age</strong> <span class="author">Jung-Geun, MA Sung-jin</span></li>
+                <li><strong>Wind Breaker</strong> <span class="author">Yongseok Jo</span></li>
+                <li><strong>Lightning Degree</strong> <span class="author">Galanthorn, Wuzhou</span></li>
+                <li><strong>The Strongest Florist</strong> <span class="author">Kumtata, Juhyeon</span></li>
+                <li><strong>Poison Dragon: The Legend of an Asura</strong> <span class="author">Samsam, Dasan</span></li>
+                <li><strong>Return to Player</strong> <span class="author">Inhan Seo, MULGOM</span></li>
+                <li><strong>Dungeon House</strong> <span class="author">Jung Si-Yoon</span></li>
+                <li><strong>Swordmaster's Youngest Son</strong> <span class="author">Emperor Penguin, KKUMOOL</span></li>
+                <li><strong>I'm the Max-Level Newbie</strong> <span class="author">Yeong-Bi, Hae-Ram</span></li>
+            </ul>
+    
+            <h2>Romance & Drama</h2>
+            <ul>
+                <li><strong>True Beauty</strong> <span class="author">Yaongyi</span></li>
+                <li><strong>Cheese in the Trap</strong> <span class="author">Soonkki</span></li>
+                <li><strong>What's Wrong with Secretary Kim</strong> <span class="author">Kim Myeongmi, Jung Kyung-yoon</span></li>
+                <li><strong>My ID is Gangnam Beauty</strong> <span class="author">Gi Maeng-gi</span></li>
+                <li><strong>A Good Day to be a Dog</strong> <span class="author">Lee Hey</span></li>
+                <li><strong>Remarried Empress</strong> <span class="author">Alphatart, Sumpul</span></li>
+                <li><strong>The Villainess is a Marionette</strong> <span class="author">Kkongalttang, Miraijin A</span></li>
+                <li><strong>I Became the Wife of the Male Lead</strong> <span class="author">COPIN, Suho, Whale</span></li>
+                <li><strong>I'll Be the Matriarch in This Life</strong> <span class="author">Kim Roah, SIYOON</span></li>
+                <li><strong>The Reason Why Raeliana Ended up at the Duke's Mansion</strong> <span class="author">Milcha, Whale</span></li>
+                <li><strong>Charlotte Has Five Disciples</strong> <span class="author">Jeongyoonoh, Dongshan</span></li>
+                <li><strong>Bring the Love</strong> <span class="author">Rizu, Samu</span></li>
+                <li><strong>I Became the Hero's Mom</strong> <span class="author">Aseul, Kaya</span></li>
+                <li><strong>The Abandoned Empress</strong> <span class="author">Ina, Yuna</span></li>
+                <li><strong>Who Made Me a Princess</strong> <span class="author">Plutus, Spoon</span></li>
+                <li><strong>The Way to Protect the Female Lead's Older Brother</strong> <span class="author">Kin, Baek Jiyeon, Henz</span></li>
+                <li><strong>Death is the Only Ending for the Villainess</strong> <span class="author">Gwon Gyeoeul, SUOL</span></li>
+                <li><strong>Lady Baby</strong> <span class="author">Ju Hyeon, Pingmin</span></li>
+                <li><strong>Beware of the Villainess!</strong> <span class="author">Bbongdda Mask, Blue Canna</span></li>
+                <li><strong>The Duchess' 50 Tea Recipes</strong> <span class="author">Lee Jiha</span></li>
+                <li><strong>Under the Oak Tree</strong> <span class="author">Suji Kim, P</span></li>
+                <li><strong>A Stepmother's Märchen</strong> <span class="author">Nyangiwa Hyangshinlo, ORKA</span></li>
+                <li><strong>The Villainess Reverses the Hourglass</strong> <span class="author">Sansobee, Ant Studio</span></li>
+                <li><strong>My Secretly Hot Husband</strong> <span class="author">Winterbaum, 28</span></li>
+                <li><strong>I Stan the Prince</strong> <span class="author">Bamboo, Liliflo</span></li>
+            </ul>
+    
+            <h2>Comedy & Slice of Life</h2>
+            <ul>
+                <li><strong>Lookism</strong> <span class="author">Park Tae-jun</span></li>
+                <li><strong>Sweet Home</strong> <span class="author">Kim Carnby, Hwang Young-chan</span></li>
+                <li><strong>Bastard</strong> <span class="author">Kim Carnby, Hwang Young-chan</span></li>
+                <li><strong>Yumi's Cells</strong></li>
+            </ul>
+        </div>
+
+        <!-- Properties Section -->
+        <div id="properties" class="content-section">
+            <h2>HUBUNGI SAYA</h2>
+
+            <div class="example-box">
+                <p><strong>BERIKUT</strong></p>
+                <ul>
+                    <li>deftaeksidriyawilian@gmail.com</li>
+                    <li>+62 895-1059-6507</li>
+                    <li>@deftawilian</li>
+                    <li>deftastudy@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Interactive Demo Section -->
+        <div id="demo" class="content-section">
+            <h2>RAHASIA</h2>
+            <p>#GABUT DITAMBAH MALES = MALES HAHAHA</p>
+
+            <div class="interactive-demo">
+                <h3>INFORMASI</h3>
+                <button class="demo-button" onclick="createStudent()">HOBI</button>
+                <button class="demo-button" onclick="addGrade()">NICKNAME MCGG</button>
+                <button class="demo-button" onclick="calculateAverage()">MAPEL FAVORIT</button>
+                <button class="demo-button" onclick="displayStudent()">NAMA MURID</button>
+                <button class="demo-button" onclick="clearOutput()">HAPUS</button>
+                <div class="output" id="output"></div>
+            </div>
+
+            
+    </div>
+
+    <script>
+        let student = null;
+
+        function showSection(clickedButton, sectionId) {
+            const sections = document.querySelectorAll('.content-section');
+            const buttons = document.querySelectorAll('.nav-tabs button');
+
+            sections.forEach(section => section.classList.remove('active'));
+            buttons.forEach(button => button.classList.remove('active'));
+            
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) targetSection.classList.add('active');
+            if (clickedButton) clickedButton.classList.add('active');
+        }
+
+        function createStudent() {
+            student = {
+                name: 'DeftaEW',
+                studentId: '300508',
+                grades: []
+            };
+            updateOutput('✅ HOBI SAYA TIDUR (ID: 300508)');
+        }
+
+        function addGrade() {
+            if (!student) {
+                updateOutput('❌ Please create a student first!');
+                return;
+            }
+            const grade = Math.floor(Math.random() * 30) + 70;
+            student.grades.push(grade);
+            updateOutput(`✅ Added grade: ${grade}\nCurrent grades: [${student.grades.join(', ')}]`);
+        }
+
+        function calculateAverage() {
+            if (!student) {
+                updateOutput('MALAS');
+                return;
+            }
+            if (student.grades.length === 0) {
+                updateOutput('❌ No grades to calculate. Add some grades first!');
+                return;
+            }
+            const avg = student.grades.reduce((a, b) => a + b, 0) / student.grades.length;
+            updateOutput(`📊 Average Grade: ${avg.toFixed(2)}`);
+        }
+
+        function displayStudent() {
+            if (!student) {
+                updateOutput('MALAS');
+                return;
+            }
+            const avg = student.grades.length > 0
+                ? (student.grades.reduce((a, b) => a + b, 0) / student.grades.length).toFixed(2)
+                : 'N/A';
+            updateOutput(`👤 Student: ${student.name}\n🆔 ID: ${student.studentId}\n📚 Grades: [${student.grades.join(', ')}]\n📊 Average: ${avg}`);
+        }
+
+        function updateOutput(text) {
+            document.getElementById('output').textContent = text;
+        }
+        function clearOutput() {
+            document.getElementById('output').textContent = '';
+        }
+    </script>
+</body>
+</html>
